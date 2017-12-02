@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 1813403121}
   - component: {fileID: 1813403125}
   - component: {fileID: 1813403124}
+  - component: {fileID: 1813403126}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -245,3 +246,17 @@ MonoBehaviour:
   - {fileID: 114883637404236724, guid: db37c318914816d40a1b3689f4ffabd6, type: 2}
   innerFloor: []
   innerWall: []
+--- !u!114 &1813403126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1813403120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f73a977d4884be78cb99c0dd43eba87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NPCCount: 3
+  MinDistance: 3
+  NPCObj: {fileID: 1583062063839714, guid: 9e65946caa833dd4e9e36ed940a3c9e9, type: 2}

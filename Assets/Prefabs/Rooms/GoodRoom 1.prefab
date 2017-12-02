@@ -56,6 +56,8 @@ MonoBehaviour:
   WallsObjects: []
   HorOutWallls:
   - {fileID: 1283497927664346, guid: c393554066144dc4c86f9170c5c7fcda, type: 2}
+  HorWallpaperWallls:
+  - {fileID: 1719832571053048, guid: 3c3e362dea6d9794cb6f2af18e142374, type: 2}
   HorNearWallls:
   - {fileID: 1535416085963816, guid: 4d4769c68a8d0664a967fbb4fb84b3b4, type: 2}
   VertLeftWallls:

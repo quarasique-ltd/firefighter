@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4419320983191574}
   - component: {fileID: 212330942347398896}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: environment_sprite_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4339242593359820}
   - component: {fileID: 61552612014687702}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: WallHorNear1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

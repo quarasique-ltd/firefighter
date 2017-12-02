@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public abstract class MovingObject : MonoBehaviour
 {
     public float moveTime = 0.1f;
     protected float stepLength = 0.1f;
-    public LayerMask blockingLayer;
+    public List<LayerMask> blockingLayer = new List<LayerMask>();
     
     private BoxCollider2D boxCollider;
     private Rigidbody2D rb2D;
@@ -24,13 +25,20 @@ public abstract class MovingObject : MonoBehaviour
         Vector2 movement = new Vector2(xDir, yDir).normalized * stepLength;
         Vector2 end = start + movement;
         boxCollider.enabled = false;
-        hit = Physics2D.Linecast(start, end, blockingLayer);
-        boxCollider.enabled = true;
-        if(hit.transform == null)
+        bool isMoveAvail = true; 
+        foreach (LayerMask layerMask in blockingLayer)
         {
+            hit = Physics2D.Linecast(start, end, layerMask);
+            isMoveAvail &= hit.transform == null;
+        }
+        hit = Physics2D.Linecast(start, end, blockingLayer[0]);
+        if (isMoveAvail)
+        {
+            boxCollider.enabled = true;
             StartCoroutine(SmoothMovement(end));
             return true;
         }
+        boxCollider.enabled = true;
         return false;
     }
     

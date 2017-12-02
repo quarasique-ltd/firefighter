@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4237984809232540}
   - component: {fileID: 61337216501803118}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: RightUpAngle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4409785246981472}
   - component: {fileID: 212178123888852846}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: environment_sprite_2_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
