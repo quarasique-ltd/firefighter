@@ -42,7 +42,16 @@ public class Player : MovingObject
         {
             vertical = -stepLength;
         }
-        AttemptMove<Fire>(horizontal, vertical);
+
+        if (horizontal != 0f || vertical != 0f)
+        {
+            animator.SetBool("playerRun", true);
+            AttemptMove<Fire>(horizontal, vertical);
+        }
+        else
+        {
+            animator.SetBool("playerRun", false);
+        }
     }
     
     protected override void AttemptMove <T> (float xDir, float yDir)
@@ -64,8 +73,7 @@ public class Player : MovingObject
     {
         if (other.tag == "Fire")
         {
-            healthPoints--;
-            CheckIfGameOver();
+            Burn();
         }
         else if(other.tag == "NPC")
         {
@@ -78,18 +86,18 @@ public class Player : MovingObject
         SceneManager.LoadScene (0);
     }
     
-    public void LoseFood (int loss)
+    public void Burn()
     {
         // TODO: play burning animation 
         healthPoints--;
         CheckIfGameOver();
     }
     
-    private void CheckIfGameOver ()
+    private void CheckIfGameOver()
     {
         if (healthPoints <= 0) 
         {
-            //GameManager.instance.GameOver();
+            GameManager.instance.GameOver();
         }
     }
 }
