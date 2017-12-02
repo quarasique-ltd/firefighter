@@ -227,9 +227,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FireLevelForSpread: 3
   FireLevelSpreadProb: 0.01
-  FireLevelUpProb: 0.05
+  FireLevelUpProb: 0.03
   FireObj: {fileID: 1904968989792778, guid: 60281f4a932d6ba40ac1e096b24d85e0, type: 2}
-  everySteps: 10
+  everySteps: 20
 --- !u!114 &1813403125
 MonoBehaviour:
   m_ObjectHideFlags: 0
