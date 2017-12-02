@@ -12,44 +12,37 @@ public class Player : MovingObject
     protected override void Start()
     {
         animator = GetComponent<Animator>();
-        points = GameManager.instance.playerFoodPoints;
         base.Start ();
     }
     
     private void OnDisable ()
     {
-        GameManager.instance.playerPoints = points;
+        //TODO: count score
     }
     
     
     private void Update ()
     {
-        if(!GameManager.instance.playersTurn) return;
-        
         float horizontal = 0;
         float vertical = 0;
-        
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             horizontal = -stepLength;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             horizontal = stepLength;
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             vertical = stepLength;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             vertical = -stepLength;
         }
-
-        if(horizontal != 0 || vertical != 0)
-        {
-            AttemptMove<Wall> (horizontal, vertical);
-        }
+        AttemptMove<Fire>(horizontal, vertical);
     }
     
     protected override void AttemptMove <T> (float xDir, float yDir)
@@ -60,8 +53,6 @@ public class Player : MovingObject
         {
             //Call RandomizeSfx of SoundManager to play the move sound, passing in two audio clips to choose from.
         }
-        CheckIfGameOver();
-        GameManager.instance.playersTurn = false;
     }
     
     protected override void OnCantMove<T>(T component)
@@ -98,7 +89,7 @@ public class Player : MovingObject
     {
         if (healthPoints <= 0) 
         {
-            GameManager.instance.GameOver ();
+            //GameManager.instance.GameOver();
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections;
 public abstract class MovingObject : MonoBehaviour
 {
     public float moveTime = 0.1f;
-    protected float stepLength = 0.5f;
+    protected float stepLength = 0.1f;
     public LayerMask blockingLayer;
     
     private BoxCollider2D boxCollider;
@@ -35,15 +35,10 @@ public abstract class MovingObject : MonoBehaviour
     
     protected IEnumerator SmoothMovement(Vector3 end)
     {
-        float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
-        
-        while(sqrRemainingDistance > float.Epsilon)
-        {
-            Vector3 newPostion = Vector3.MoveTowards(rb2D.position, end, inverseMoveTime * Time.deltaTime);
-            rb2D.MovePosition(newPostion);
-            sqrRemainingDistance = (transform.position - end).sqrMagnitude;
-            yield return null;
-        }
+        Vector3 newPostion = Vector3.MoveTowards(rb2D.position, end, inverseMoveTime * Time.deltaTime);
+        rb2D.MovePosition(newPostion);
+        sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+        yield return null;
     }
     
     protected virtual void AttemptMove<T>(float xDir, float yDir) where T : Component
