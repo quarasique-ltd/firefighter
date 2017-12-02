@@ -11,6 +11,7 @@ public class Room : MonoBehaviour
     public GameObject[] WallsObjects;
 
     public GameObject[] HorOutWallls;
+    public GameObject[] HorWallpaperWallls;
     public GameObject[] HorNearWallls;
     public GameObject[] VertLeftWallls;
     public GameObject[] VertRightWallls;
@@ -30,7 +31,7 @@ public class Room : MonoBehaviour
     
     public Vector3[] GenerateWalls(Vector3 initPos)
     {
-        Vector3[] walls = new Vector3[(2 * shapeX - 6) + 2* shapeY];
+        Vector3[] walls = new Vector3[(3* shapeX - 9) + 2* shapeY];
         int yCounter = 1;
         int arrCounter = 0;
         while (yCounter < shapeY - 1)
@@ -57,8 +58,22 @@ public class Room : MonoBehaviour
             walls[arrCounter] = new Vector3(initPos.x + xCounter, initPos.y+shapeY - 1);
             Instantiate(HorOutWallls[Random.Range(0, HorOutWallls.Length)], walls[arrCounter], Quaternion.identity);
             arrCounter++;
+            // wallpaper
+            walls[arrCounter] = new Vector3(initPos.x + xCounter, initPos.y+shapeY - 2);
+            Instantiate(HorWallpaperWallls[Random.Range(0, HorWallpaperWallls.Length)], walls[arrCounter], Quaternion.identity);
+            arrCounter++;
             xCounter++;
         }
+        
+        
+        // wallpaper
+        walls[arrCounter] = new Vector3(initPos.x + shapeX / 2 - 1, initPos.y+shapeY - 2);
+        Instantiate(HorWallpaperWallls[Random.Range(0, HorWallpaperWallls.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
+        walls[arrCounter] = new Vector3(initPos.x + shapeX / 2 + 1, initPos.y+shapeY - 2);
+        Instantiate(HorWallpaperWallls[Random.Range(0, HorWallpaperWallls.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
+        
         
         // angles of the room
         walls[arrCounter] = new Vector3(initPos.x, initPos.y);
@@ -92,15 +107,15 @@ public class Room : MonoBehaviour
 
     public Vector3[] GenerateFloor(Vector3 initPos)
     {
-        Vector3[] floors = new Vector3[(shapeX - 2) * (shapeY - 2) + 2];
+        Vector3[] floors = new Vector3[(shapeX - 2) * (shapeY - 3) + 3];
         for (int i = 1; i < shapeX - 1; i++)
         {
-            for (int g = 1; g < shapeY - 1; g++)
+            for (int g = 1; g < shapeY - 2; g++)
             {
-                floors[(i - 1) * (shapeY - 2) + (g - 1)] = new Vector3(initPos.x + i, initPos.y + g);
+                floors[(i - 1) * (shapeY - 3) + (g - 1)] = new Vector3(initPos.x + i, initPos.y + g);
             }
         }
-        Debug.Log(shapeX/2 + " " + initPos.y);
+        floors[floors.Length-3] = new Vector3(shapeX  /  2 + initPos.x, initPos.y+shapeY - 2);
         floors[floors.Length-2] = new Vector3(shapeX  /  2 + initPos.x, initPos.y);
         floors[floors.Length-1] = new Vector3(shapeX  /  2 + initPos.x, initPos.y + shapeY - 1);
         foreach (Vector3 floor in floors)
