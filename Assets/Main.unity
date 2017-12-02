@@ -257,5 +257,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireLevelForSpread: 3
-  FireLevelSpreadProb: 0.002
-  FireObj: {fileID: 1358827251435320, guid: 60281f4a932d6ba40ac1e096b24d85e0, type: 2}
+  FireLevelSpreadProb: 0.001
+  FireObj: {fileID: 1904968989792778, guid: 60281f4a932d6ba40ac1e096b24d85e0, type: 2}

@@ -7,7 +7,7 @@ public class Fire : MonoBehaviour
 
 	private int FireLevel = 0;
 
-	public GameObject[] FireLevels;
+	public Sprite[] FireLevels;
 	private GameObject currentFire;
 	private Vector3 pos;
 	
@@ -21,8 +21,7 @@ public class Fire : MonoBehaviour
 		if (FireLevels.Length - FireLevel >= 2)
 		{
 			FireLevel++;
-			Destroy(currentFire);
-			currentFire =(GameObject) Instantiate(FireLevels[FireLevel], pos, Quaternion.identity);
+			this.GetComponent<SpriteRenderer>().sprite = FireLevels[FireLevel];
 		}
 	}
 
@@ -34,9 +33,8 @@ public class Fire : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		currentFire = (GameObject) Instantiate(FireLevels[FireLevel], pos, Quaternion.identity);
 		this.pos = gameObject.transform.position;
-		Debug.Log(pos.x + " " + pos.y);
+		this.GetComponent<SpriteRenderer>().sprite = FireLevels[FireLevel];
 	}
 	
 	// Update is called once per frame
