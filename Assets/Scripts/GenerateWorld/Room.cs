@@ -47,7 +47,7 @@ public class Room : MonoBehaviour
 
     public Vector3[] GenerateFloor(Vector3 initPos)
     {
-        Vector3[] floors = new Vector3[(shapeX - 2) * (shapeY - 2) + 1];
+        Vector3[] floors = new Vector3[(shapeX - 2) * (shapeY - 2) + 2];
         for (int i = 1; i < shapeX - 1; i++)
         {
             for (int g = 1; g < shapeY - 1; g++)
@@ -55,7 +55,9 @@ public class Room : MonoBehaviour
                 floors[(i - 1) * (shapeY - 2) + (g - 1)] = new Vector3(initPos.x + i, initPos.y + g);
             }
         }
-        Debug.Log("floor generated");
+        Debug.Log(shapeX/2 + " " + initPos.y);
+        floors[floors.Length-2] = new Vector3(shapeX  /  2 + initPos.x, initPos.y);
+        floors[floors.Length-1] = new Vector3(shapeX  /  2 + initPos.x, initPos.y + shapeY - 1);
         foreach (Vector3 floor in floors)
         {
             Instantiate(FloorObjects[Random.Range(0, FloorObjects.Length)], floor, Quaternion.identity);
