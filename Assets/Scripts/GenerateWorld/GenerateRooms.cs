@@ -22,7 +22,7 @@ namespace GenerateWorld
 				innerFloor .AddRange(room.GenerateFloor(initPos));
 				initPos.y += shapeY;
 			}
-			Debug.Log("finished to generate rooms");
+			GameManager.instance.FloorTiles.AddRange(innerFloor);
 		}
 	}
 }
