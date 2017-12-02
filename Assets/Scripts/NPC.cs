@@ -3,11 +3,10 @@ using System.Collections;
 
 public class NPC : MovingObject
 {
-    public int savingScore = 100;
-    
     private Animator animator;
     private Transform target;
     private bool skipMove;
+    private float distance;
     
     protected override void Start ()
     {
@@ -30,20 +29,43 @@ public class NPC : MovingObject
     
     public void MoveNPC ()
     {
-        int xDir = 0;
-        int yDir = 0;
-        
-        if(target.position.x - transform.position.x < float.Epsilon)
-            yDir = target.position.y > transform.position.y ? 1 : -1;
-        else
-            xDir = target.position.x > transform.position.x ? 1 : -1;
+        if (null != target)
+        {
+            float xDir = 0;
+            float yDir = 0;
+
+            if (target.position.x - transform.position.x < distance)
+                yDir = target.position.y > transform.position.y ? stepLength : -stepLength;
+            else
+                xDir = target.position.x > transform.position.x ? stepLength : -stepLength;
             AttemptMove<Player>(xDir, yDir);
+        }
     }
     
-    protected override void OnCantMove <T> (T component)
+    private void OnTriggerEnter2D (Collider2D other)
     {
-        Player player = component as Player;
-        player.AddPoints(savingScore);
+        if (other.tag == "Fire")
+        {
+            Burn();
+        }
+        else if(other.tag == "Player")
+        {
+            FollowPlayer();
+        }
+    }
+
+    private void Burn()
+    {
+        // TODO: method to play burning animation and delete NPC from screen;
+    }
+
+    private void FollowPlayer()
+    {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+    
+    protected override void OnCantMove<T>(T component)
+    {
+        // TODO: prevent 'going into the wall'
     }
 }

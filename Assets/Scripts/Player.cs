@@ -1,26 +1,24 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Player : MovingObject
 {
-    public float restartLevelDelay = 1f;
-    public int pointsPerFood = 10;
-    public int pointsPerSoda = 20;
-    public int wallDamage = 1;
+    public int savingPoints = 10;
+    public int healthPoints = 3;
     
     private Animator animator;
-    private int food;
+    private int points;
      
-    protected override void Start ()
+    protected override void Start()
     {
         animator = GetComponent<Animator>();
-        food = GameManager.instance.playerFoodPoints;
+        points = GameManager.instance.playerFoodPoints;
         base.Start ();
     }
     
     private void OnDisable ()
     {
-        GameManager.instance.playerFoodPoints = food;
+        GameManager.instance.playerPoints = points;
     }
     
     
@@ -28,17 +26,26 @@ public class Player : MovingObject
     {
         if(!GameManager.instance.playersTurn) return;
         
-        int horizontal = 0;
-        int vertical = 0;
+        float horizontal = 0;
+        float vertical = 0;
         
-        horizontal = (int) (Input.GetAxisRaw ("Horizontal"));
-        vertical = (int) (Input.GetAxisRaw ("Vertical"));
-        
-        if(horizontal != 0)
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            vertical = 0;
+            horizontal = -stepLength;
         }
-        
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            horizontal = stepLength;
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            vertical = stepLength;
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            vertical = -stepLength;
+        }
+
         if(horizontal != 0 || vertical != 0)
         {
             AttemptMove<Wall> (horizontal, vertical);
@@ -47,40 +54,31 @@ public class Player : MovingObject
     
     protected override void AttemptMove <T> (float xDir, float yDir)
     {
-        food--;
         base.AttemptMove <T> (xDir, yDir);
         RaycastHit2D hit;
         if (Move (xDir, yDir, out hit)) 
         {
             //Call RandomizeSfx of SoundManager to play the move sound, passing in two audio clips to choose from.
         }
-        CheckIfGameOver ();
+        CheckIfGameOver();
         GameManager.instance.playersTurn = false;
     }
     
-    protected override void OnCantMove <T> (T component)
+    protected override void OnCantMove<T>(T component)
     {
-        Wall hitWall = component as Wall;
-        hitWall.DamageWall (wallDamage);
-        animator.SetTrigger ("playerChop");
+        // TODO: prevent 'going into the wall'
     }
     
     private void OnTriggerEnter2D (Collider2D other)
     {
-        if(other.tag == "Exit")
+        if (other.tag == "Fire")
         {
-            Invoke ("Restart", restartLevelDelay);
-            enabled = false;
+            healthPoints--;
+            CheckIfGameOver();
         }
-        else if(other.tag == "Food")
+        else if(other.tag == "NPC")
         {
-            food += pointsPerFood;
-            other.gameObject.SetActive (false);
-        }
-        else if(other.tag == "Soda")
-        {
-            food += pointsPerSoda;
-            other.gameObject.SetActive (false);
+            points += savingPoints;
         }
     }
     
@@ -91,14 +89,14 @@ public class Player : MovingObject
     
     public void LoseFood (int loss)
     {
-        animator.SetTrigger ("playerHit");
-        food -= loss;
-        CheckIfGameOver ();
+        // TODO: play burning animation 
+        healthPoints--;
+        CheckIfGameOver();
     }
     
     private void CheckIfGameOver ()
     {
-        if (food <= 0) 
+        if (healthPoints <= 0) 
         {
             GameManager.instance.GameOver ();
         }
