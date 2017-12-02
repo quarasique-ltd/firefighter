@@ -51,23 +51,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6256cfc932fd51d4cbffeb6415d0e735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeX: 6
+  shapeX: 7
   shapeY: 8
   WallsObjects: []
   HorOutWallls:
-  - {fileID: 1283497927664346, guid: c393554066144dc4c86f9170c5c7fcda, type: 2}
+  - {fileID: 1958030773972314, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
   HorNearWallls:
-  - {fileID: 1535416085963816, guid: 4d4769c68a8d0664a967fbb4fb84b3b4, type: 2}
+  - {fileID: 1958030773972314, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
   VertLeftWallls:
-  - {fileID: 1505455834193438, guid: eb243557dafaee248b619d4afee07e20, type: 2}
+  - {fileID: 1958030773972314, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
   VertRightWallls:
-  - {fileID: 1284453045981290, guid: 4d038bb8ddee5d742bd746378deccc3e, type: 2}
-  LeftUpAngleWalls: []
-  RitghUpAngleWalls: []
-  LeftDownAngleWalls: []
-  RightDownAngleWalls: []
-  LeftDownPass: []
-  RightDownPass: []
-  LeftUpPass: []
-  RightUpPass: []
-  FloorObjects: []
+  - {fileID: 1958030773972314, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
+  LeftUpAngleWalls:
+  - {fileID: 1958030773972314, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
+  RitghUpAngleWalls:
+  - {fileID: 1958030773972314, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
+  LeftDownAngleWalls:
+  - {fileID: 1958030773972314, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
+  RightDownAngleWalls:
+  - {fileID: 1958030773972314, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
+  LeftDownPass:
+  - {fileID: 1692390007497714, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
+  RightDownPass:
+  - {fileID: 1692390007497714, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
+  LeftUpPass:
+  - {fileID: 1692390007497714, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
+  RightUpPass:
+  - {fileID: 1692390007497714, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
+  FloorObjects:
+  - {fileID: 1776139472036578, guid: 36c9867e070944c498f70e82356d40b4, type: 2}
