@@ -1,15 +1,19 @@
 fileFormatVersion: 2
-guid: 772a47e5d52fb4502be3bb7cdf96de83
-timeCreated: 1512209507
+guid: da203168eba5f4c6c969f48d1f404861
+timeCreated: 1512215980
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: firefighter_sprite_0
-    21300002: firefighter_sprite_1
-    21300004: firefighter_sprite_2
-    21300006: firefighter_sprite_3
-    21300008: firefighter_sprite_4
-    21300010: firefighter_sprite_5
+    21300000: environment_sprite_0
+    21300002: environment_sprite_1
+    21300004: environment_sprite_2
+    21300006: environment_sprite_3
+    21300008: environment_sprite_4
+    21300010: environment_sprite_5
+    21300012: environment_sprite_6
+    21300014: environment_sprite_7
+    21300016: environment_sprite_8
+    21300018: environment_sprite_9
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -52,7 +56,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 33
+  spritePixelsToUnits: 30
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -84,13 +88,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: firefighter_sprite_0
+      name: environment_sprite_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 22
-        height: 33
+        x: 0
+        y: 30
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -98,13 +102,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: firefighter_sprite_1
+      name: environment_sprite_1
       rect:
         serializedVersion: 2
-        x: 24
-        y: 1
-        width: 22
-        height: 33
+        x: 30
+        y: 30
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,13 +116,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: firefighter_sprite_2
+      name: environment_sprite_2
       rect:
         serializedVersion: 2
-        x: 47
-        y: 1
-        width: 22
-        height: 33
+        x: 60
+        y: 30
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,13 +130,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: firefighter_sprite_3
+      name: environment_sprite_3
       rect:
         serializedVersion: 2
-        x: 70
-        y: 1
-        width: 22
-        height: 33
+        x: 90
+        y: 30
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,13 +144,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: firefighter_sprite_4
+      name: environment_sprite_4
       rect:
         serializedVersion: 2
-        x: 93
-        y: 1
-        width: 22
-        height: 33
+        x: 120
+        y: 30
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,13 +158,69 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: firefighter_sprite_5
+      name: environment_sprite_5
       rect:
         serializedVersion: 2
-        x: 116
-        y: 1
-        width: 22
-        height: 33
+        x: 0
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: environment_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: environment_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: environment_sprite_8
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: environment_sprite_9
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
