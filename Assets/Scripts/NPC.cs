@@ -3,7 +3,7 @@ using System.Collections;
 
 public class NPC : MovingObject
 {
-    public int playerDamage;
+    public int savingScore = 100;
     
     private Animator animator;
     private Transform target;
@@ -43,7 +43,7 @@ public class NPC : MovingObject
     protected override void OnCantMove <T> (T component)
     {
         Player player = component as Player;
-        player.AddPoints(playerDamage);
+        player.AddPoints(savingScore);
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 }
