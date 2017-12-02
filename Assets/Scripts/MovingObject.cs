@@ -37,7 +37,6 @@ public abstract class MovingObject : MonoBehaviour
     {
         Vector3 newPostion = Vector3.MoveTowards(rb2D.position, end, inverseMoveTime * Time.deltaTime);
         rb2D.MovePosition(newPostion);
-        sqrRemainingDistance = (transform.position - end).sqrMagnitude;
         yield return null;
     }
     
