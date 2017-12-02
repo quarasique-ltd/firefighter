@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IWorldUpdater {
+public interface IWorldGenerator {
 	
 	// Update is called once per frame
-	void UpdateWorld();
+	void Init();
 }
