@@ -15,13 +15,14 @@ public abstract class MovingObject : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
-        inverseMoveTime = 1f / moveTime;
+        inverseMoveTime = stepLength / moveTime;
     }
     
     protected bool Move (float xDir, float yDir, out RaycastHit2D hit)
     {
         Vector2 start = transform.position;
-        Vector2 end = start + new Vector2(xDir, yDir);
+        Vector2 movement = new Vector2(xDir, yDir).normalized * stepLength;
+        Vector2 end = start + movement;
         boxCollider.enabled = false;
         hit = Physics2D.Linecast(start, end, blockingLayer);
         boxCollider.enabled = true;

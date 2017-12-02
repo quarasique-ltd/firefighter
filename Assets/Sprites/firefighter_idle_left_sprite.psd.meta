@@ -1,13 +1,15 @@
 fileFormatVersion: 2
-guid: 9bd9c8daf57b34df9a3967754339c0f5
-timeCreated: 1512221890
+guid: 387f36c30ced844d499617335c7d3457
+timeCreated: 1512222322
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: environment_sprite_2_0
-    21300002: environment_sprite_2_1
-    21300004: environment_sprite_2_2
-    21300006: environment_sprite_2_3
+    21300000: firefighter_idle_left_sprite_0
+    21300002: firefighter_idle_left_sprite_1
+    21300004: firefighter_idle_left_sprite_2
+    21300006: firefighter_idle_left_sprite_3
+    21300008: firefighter_idle_left_sprite_4
+    21300010: firefighter_idle_left_sprite_5
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -50,7 +52,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 30
+  spritePixelsToUnits: 33
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -82,13 +84,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: environment_sprite_2_0
+      name: firefighter_idle_left_sprite_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 30
-        height: 30
+        x: 1
+        y: 1
+        width: 22
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -96,13 +98,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: environment_sprite_2_1
+      name: firefighter_idle_left_sprite_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 0
-        width: 30
-        height: 30
+        x: 24
+        y: 1
+        width: 22
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,13 +112,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: environment_sprite_2_2
+      name: firefighter_idle_left_sprite_2
       rect:
         serializedVersion: 2
-        x: 60
-        y: 0
-        width: 30
-        height: 30
+        x: 47
+        y: 1
+        width: 22
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,13 +126,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: environment_sprite_2_3
+      name: firefighter_idle_left_sprite_3
       rect:
         serializedVersion: 2
-        x: 90
-        y: 0
-        width: 30
-        height: 30
+        x: 70
+        y: 1
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: firefighter_idle_left_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 1
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: firefighter_idle_left_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1
+        width: 22
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
