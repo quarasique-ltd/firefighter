@@ -61,7 +61,8 @@ public class FireStrategy : MonoBehaviour, IWorldUpdater, IWorldGenerator
 
     private bool maySetFire(Vector3 pos)
     {
-        return true;
+        List<Vector3> floor = GameManager.instance.FloorTiles;
+        return floor.Contains(pos);
     }
 
     public void UpdateWorld()
@@ -110,8 +111,13 @@ public class FireStrategy : MonoBehaviour, IWorldUpdater, IWorldGenerator
 
     public void Init()
     {
-        Vector3 firePos = new Vector3(0, 0, 0);
-        GameObject newFire = Instantiate(FireObj, firePos, Quaternion.identity);
-        FirePlaces.Add(newFire.GetComponent("Fire") as Fire);
+        for (int i = 0; i < 4; i++)
+        {
+            int index = Random.Range(0, GameManager.instance.FloorTiles.Count);
+            Vector3 firePos = GameManager.instance.FloorTiles[index];
+            GameManager.instance.FloorTiles.RemoveAt(index);
+            GameObject newFire = Instantiate(FireObj, firePos, Quaternion.identity);
+            FirePlaces.Add(newFire.GetComponent("Fire") as Fire);
+        }
     }
 }
