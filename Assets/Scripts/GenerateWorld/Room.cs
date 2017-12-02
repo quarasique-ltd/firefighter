@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -8,40 +9,84 @@ public class Room : MonoBehaviour
     public int shapeX, shapeY;
 
     public GameObject[] WallsObjects;
+
+    public GameObject[] HorOutWallls;
+    public GameObject[] HorNearWallls;
+    public GameObject[] VertLeftWallls;
+    public GameObject[] VertRightWallls;
+    public GameObject[] LeftUpAngleWalls;
+    public GameObject[] RitghUpAngleWalls;
+    public GameObject[] LeftDownAngleWalls;
+    public GameObject[] RightDownAngleWalls;
+
+    public GameObject[] LeftDownPass;
+    public GameObject[] RightDownPass;
+    
+    public GameObject[] LeftUpPass;
+    public GameObject[] RightUpPass;
+    
+    
     public GameObject[] FloorObjects;
     
     public Vector3[] GenerateWalls(Vector3 initPos)
     {
         Vector3[] walls = new Vector3[(2 * shapeX - 6) + 2* shapeY];
-        int yCounter = 0;
+        int yCounter = 1;
         int arrCounter = 0;
-        while (yCounter < shapeY)
+        while (yCounter < shapeY - 1)
         {
             walls[arrCounter] = new Vector3(initPos.x, initPos.y + yCounter);
+            Instantiate(VertLeftWallls[Random.Range(0, VertLeftWallls.Length)], walls[arrCounter], Quaternion.identity);
             arrCounter++;
             walls[arrCounter] = new Vector3(initPos.x+shapeX - 1, initPos.y + yCounter);
+            Instantiate(VertRightWallls[Random.Range(0, VertRightWallls.Length)], walls[arrCounter], Quaternion.identity);
             arrCounter++;
             yCounter++;
         }
         int xCounter = 1;
         while (xCounter < shapeX - 1)
         {
-            if (shapeX / 2 == xCounter)
+            if (Math.Abs(shapeX / 2 - xCounter) < 2)
             {
                 xCounter++;
                 continue;
             }
             walls[arrCounter] = new Vector3(initPos.x + xCounter, initPos.y);
+            Instantiate(HorNearWallls[Random.Range(0, HorNearWallls.Length)], walls[arrCounter], Quaternion.identity);
             arrCounter++;
             walls[arrCounter] = new Vector3(initPos.x + xCounter, initPos.y+shapeY - 1);
+            Instantiate(HorOutWallls[Random.Range(0, HorOutWallls.Length)], walls[arrCounter], Quaternion.identity);
             arrCounter++;
             xCounter++;
         }
-        Debug.Log("wall generated");
-        foreach (Vector3 wall in walls)
-        {
-            Instantiate(WallsObjects[Random.Range(0, WallsObjects.Length)], wall, Quaternion.identity);
-        }
+        
+        // angles of the room
+        walls[arrCounter] = new Vector3(initPos.x, initPos.y);
+        Instantiate(LeftDownAngleWalls[Random.Range(0, LeftDownAngleWalls.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
+        walls[arrCounter] = new Vector3(initPos.x+shapeX - 1, initPos.y);
+        Instantiate(RightDownAngleWalls[Random.Range(0, RightDownAngleWalls.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
+        walls[arrCounter] = new Vector3(initPos.x, initPos.y + shapeY -1);
+        Instantiate(LeftUpAngleWalls[Random.Range(0, LeftUpAngleWalls.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
+        walls[arrCounter] = new Vector3(initPos.x + shapeX -1, initPos.y + shapeY -1);
+        Instantiate(RitghUpAngleWalls[Random.Range(0, RitghUpAngleWalls.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
+        
+        // angles of the pass
+        walls[arrCounter] = new Vector3(initPos.x + (shapeX / 2) -1, initPos.y + shapeY -1);
+        Instantiate(LeftUpPass[Random.Range(0, LeftUpPass.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
+        walls[arrCounter] = new Vector3(initPos.x + (shapeX / 2) + 1, initPos.y + shapeY -1);
+        Instantiate(RightUpPass[Random.Range(0, RightUpPass.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
+        walls[arrCounter] = new Vector3(initPos.x + (shapeX / 2) -1, initPos.y);
+        Instantiate(LeftDownPass[Random.Range(0, LeftDownPass.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
+        walls[arrCounter] = new Vector3(initPos.x + (shapeX / 2) + 1, initPos.y);
+        Instantiate(RightDownPass[Random.Range(0, RightDownPass.Length)], walls[arrCounter], Quaternion.identity);
+        
         return walls;
     }
 
