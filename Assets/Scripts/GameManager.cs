@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour {
 	private bool gameOver = false;
 	private float restartTimer = 0;
 	private float restartDelay = 0;
-	public int points = 1;
+	public int points = 0;
 	
 	void Awake()
 	{
@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour {
 	void InitGame () {
 		boardScript.BoardSetup(level);
 	}
-	
+
+	private bool winB = false;
 	void Update () {
 		restartTimer += Time.deltaTime;
 		if (gameOver)
@@ -38,12 +39,21 @@ public class GameManager : MonoBehaviour {
 			SceneManager.LoadScene(0);
 			gameOver = false;
 		}
+		if (winB)
+		{
+			SceneManager.UnloadScene(0);
+			SceneManager.LoadScene(0);
+			winB = false;
+		}
 		boardScript.Update();
 	}
 
 	public void win()
 	{
-		GameOver();
+		if (!winB)
+		{
+			winB = true;
+		}
 	}
 
 	public void GameOver()
@@ -52,6 +62,7 @@ public class GameManager : MonoBehaviour {
 		{
 			gameOver = true;
 			restartDelay += restartTimer +1f;
+			points = 0;
 		}
 	}
 }

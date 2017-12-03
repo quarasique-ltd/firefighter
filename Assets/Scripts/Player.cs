@@ -84,6 +84,9 @@ public class Player : MovingObject
         else if(other.tag == "NPC")
         {
             points += savingPoints;
+        }else if(other.tag == "Finish")
+        {
+            GameManager.instance.win();
         }
     }
     

@@ -422,6 +422,11 @@ Prefab:
       value: 
       objectReference: {fileID: 114088933318299436, guid: 2e883da2f9547f94ba7e2d39bdf8a362,
         type: 2}
+    - target: {fileID: 114072632790050676, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
+        type: 2}
+      propertyPath: everySteps
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65fca93cc99298e45b003ea8ce4a4b7f, type: 2}
   m_IsPrefabParent: 0
