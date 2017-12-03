@@ -48,7 +48,7 @@ namespace GenerateWorld
 			int arrCounter = 0;
 			while (yCounter < shapeY - 1)
 			{
-				if (Math.Abs(shapeY / 2 - yCounter) < 2)
+				if (Math.Abs(shapeY / 2 - yCounter) < 2 || yCounter - shapeY/2 == 1)
 				{
 					yCounter++;
 					continue;
@@ -78,13 +78,13 @@ namespace GenerateWorld
 			}
         
 //        
-//        // wallpaper
-//        walls[arrCounter] = new Vector3(initPos.x + shapeX / 2 - 1, initPos.y+shapeY - 2);
-//        Instantiate(HorWallpaperWallls[Random.Range(0, HorWallpaperWallls.Length)], walls[arrCounter], Quaternion.identity);
-//        arrCounter++;
-//        walls[arrCounter] = new Vector3(initPos.x + shapeX / 2 + 1, initPos.y+shapeY - 2);
-//        Instantiate(HorWallpaperWallls[Random.Range(0, HorWallpaperWallls.Length)], walls[arrCounter], Quaternion.identity);
-//        arrCounter++;
+        // wallpaper
+        walls.Add(new Vector3(initPos.x, initPos.y + shapeY/2+1));
+        Instantiate(HorWallpaperWallls[Random.Range(0, HorWallpaperWallls.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
+        walls.Add(new Vector3(initPos.x +shapeX -1, initPos.y + shapeY/2+1));
+        Instantiate(HorWallpaperWallls[Random.Range(0, HorWallpaperWallls.Length)], walls[arrCounter], Quaternion.identity);
+        arrCounter++;
         
         
 			// angles of the room
@@ -103,13 +103,13 @@ namespace GenerateWorld
 
 			initPos.y += shapeY / 2;        
 			// angles of the pass
-			walls.Add(new Vector3(initPos.x, initPos.y  + 1));
+			walls.Add(new Vector3(initPos.x, initPos.y  + 2));
 			Instantiate(LeftUpPass[Random.Range(0, LeftUpPass.Length)], walls.Last(), Quaternion.identity);
 			arrCounter++;
 			walls.Add(new Vector3(initPos.x, initPos.y  - 1));
 			Instantiate(LeftDownPass[Random.Range(0, LeftDownPass.Length)], walls.Last(), Quaternion.identity);
 			arrCounter++;
-			walls.Add(new Vector3(initPos.x + shapeX - 1, initPos.y +1));
+			walls.Add(new Vector3(initPos.x + shapeX - 1, initPos.y +2));
 			Instantiate(RightUpPass[Random.Range(0, RightUpPass.Length)], walls.Last(), Quaternion.identity);
 			arrCounter++;
 			walls.Add(new Vector3(initPos.x + shapeX - 1, initPos.y -1));
