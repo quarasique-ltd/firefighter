@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 61716195845399428}
   - component: {fileID: 212217660465407234}
   m_Layer: 10
-  m_Name: Fire 1
+  m_Name: Fire
   m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8131fc628b86b49821bf95c02beebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxFireLevel: 0
+  maxFireLevel: 3
 --- !u!212 &212217660465407234
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -88,6 +88,7 @@ public class NPC : MovingObject
         }
         else if(other.tag == "Player")
         {
+            GameManager.instance.points += 1;
             FollowPlayer();
         }
     }
@@ -96,6 +97,8 @@ public class NPC : MovingObject
     {
         this.enabled = false;
         this.animator.enabled = false;
+        if(target!=null)
+            GameManager.instance.points -= 3;
         Destroy(this.gameObject);
         // TODO: method to play burning animation and delete NPC from screen;
     }

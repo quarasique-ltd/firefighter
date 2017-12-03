@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	private bool gameOver = false;
 	private float restartTimer = 0;
 	private float restartDelay = 0;
+	public int points = 1;
 	
 	void Awake()
 	{
@@ -37,6 +39,11 @@ public class GameManager : MonoBehaviour {
 			gameOver = false;
 		}
 		boardScript.Update();
+	}
+
+	public void win()
+	{
+		
 	}
 
 	public void GameOver()
