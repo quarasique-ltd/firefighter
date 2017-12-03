@@ -31,6 +31,5 @@ public class Fire : MonoBehaviour
 	void Start ()
 	{
 		pos = gameObject.transform.position;
-		animator.SetInteger("fireLevel", fireLevel);
 	}
 }
