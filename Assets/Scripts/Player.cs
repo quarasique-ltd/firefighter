@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MovingObject
 {
     public int savingPoints = 10;
-    public int healthPoints = 3;
+    public int healthPoints = 400;
+
+    public Text score;
     
     private Animator animator;
     private int points;
@@ -23,6 +26,7 @@ public class Player : MovingObject
     
     private void Update ()
     {
+        score.text = "Score: " + GameManager.instance.points;
         float horizontal = 0;
         float vertical = 0;
 
@@ -87,11 +91,16 @@ public class Player : MovingObject
     {
         SceneManager.LoadScene (0);
     }
-    
+
+    private int fired = 0;
     public void Burn()
     {
-        // TODO: play burning animation 
-        healthPoints--;
+        // TODO: play burning animation
+        fired++;
+        if (fired % 10 == 0)
+        {
+            healthPoints--;
+        }
         CheckIfGameOver();
     }
     

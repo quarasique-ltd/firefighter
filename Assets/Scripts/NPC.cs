@@ -78,7 +78,8 @@ public class NPC : MovingObject
             AttemptMove<Player>(xDir, yDir);
         }
     }
-    
+
+    private bool setPoints = false;
     private void OnTriggerEnter2D (Collider2D other)
     {
         if (other.tag == "Fire")
@@ -87,12 +88,26 @@ public class NPC : MovingObject
         }
         else if(other.tag == "Player")
         {
+            if(!setPoints)
+                GameManager.instance.points += 1;
+            setPoints = true;
             FollowPlayer();
         }
     }
 
+    private bool setPointsDie = false;
+
     private void Burn()
     {
+        this.enabled = false;
+        this.animator.enabled = false;
+        if (target != null)
+        {
+            if(!setPointsDie)
+                GameManager.instance.points -= 3;
+            setPointsDie = true;
+        }
+        Destroy(this.gameObject);
         // TODO: method to play burning animation and delete NPC from screen;
     }
 

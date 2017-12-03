@@ -123,7 +123,7 @@ MonoBehaviour:
     m_Bits: 256
   - serializedVersion: 2
     m_Bits: 512
-  maxDistance: 0.3
+  maxDistance: 3
   minDistance: 0.5
   changeDistanceProb: 0.01
   walkEbanca: 0.001
