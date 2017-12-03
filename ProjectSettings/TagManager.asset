@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - NPC
+  - Wall
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - 
   - NPC
   - Wall
-  - 
+  - Fire
   - 
   - 
   - 
