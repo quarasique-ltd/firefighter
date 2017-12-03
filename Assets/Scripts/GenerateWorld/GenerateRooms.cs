@@ -16,6 +16,7 @@ namespace GenerateWorld
 		{
 			Debug.Log("started to generate rooms");
 			Vector3 initPos = new Vector3(0, 0, 0);
+			int initX = (int) initPos.x;
 			foreach (Room room in rooms)
 			{
 				int shapeX = room.getShapeX();
@@ -24,6 +25,11 @@ namespace GenerateWorld
 				innerFloor .AddRange(room.GenerateFloor(initPos));
 				initPos.x += shapeX;
 			}
+			
+			Instantiate(rooms[rooms.Length - 1].VertLeftWallls[0], new Vector3(initX - 1, initPos.y), Quaternion.identity);
+			Instantiate(rooms[rooms.Length - 1].VertLeftWallls[0], new Vector3(initX - 1, initPos.y+1), Quaternion.identity);
+			Instantiate(rooms[rooms.Length - 1].VertRightWallls[0], new Vector3(initPos.x, initPos.y), Quaternion.identity);
+			Instantiate(rooms[rooms.Length - 1].VertRightWallls[0], new Vector3(initPos.x, initPos.y+1), Quaternion.identity);
 			int y = (int) initPos.y + rooms[rooms.Length - 1].getShapeY()/2 - 3;
 			
 			Instantiate(winFloor, new Vector3(initPos.x - 2, y), Quaternion.identity);
