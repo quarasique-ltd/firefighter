@@ -6,6 +6,9 @@ namespace GenerateWorld
 {
 	public class GenerateRooms : MonoBehaviour, IWorldGenerator
 	{
+		public GameObject winFloor;
+		public GameObject winWall;
+		
 		public GenerateHorRoom[] rooms;
 		private List<Vector3> innerFloor = new List<Vector3>();
 		private List<Vector3> innerWall = new List<Vector3>();
@@ -21,6 +24,11 @@ namespace GenerateWorld
 				innerFloor .AddRange(room.GenerateFloor(initPos));
 				initPos.x += shapeX;
 			}
+			int y = (int) initPos.y + rooms[rooms.Length - 1].getShapeY()/2 - 3;
+			
+			Instantiate(winFloor, new Vector3(initPos.x - 2, y), Quaternion.identity);
+			Instantiate(winWall, new Vector3(initPos.x - 2, y + 1), Quaternion.identity);
+			
 			GameManager.instance.FloorTiles.AddRange(innerFloor);
 		}
 	}

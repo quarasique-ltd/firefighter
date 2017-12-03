@@ -8,6 +8,7 @@ public class Fire : MonoBehaviour
 	private Vector3 pos;
 	private Animator animator;
 	private int fireLevel = 0;
+	public int maxFireLevel = 2;
 	
 	public Fire(Vector3 pos)
 	{
@@ -15,7 +16,7 @@ public class Fire : MonoBehaviour
 
 	public void levelUp()
 	{
-		if (fireLevel > 2)
+		if (fireLevel < maxFireLevel)
 		{
 			fireLevel++;
 			animator.SetInteger("fireLevel", fireLevel);
