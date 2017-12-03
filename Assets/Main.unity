@@ -156,6 +156,11 @@ Prefab:
       propertyPath: orthographic size
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 61678239715511200, guid: 15b4642c5f2315e47a5855a489f19432,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15b4642c5f2315e47a5855a489f19432, type: 2}
   m_IsPrefabParent: 0
@@ -171,6 +176,7 @@ GameObject:
   - component: {fileID: 1813403121}
   - component: {fileID: 1813403125}
   - component: {fileID: 1813403124}
+  - component: {fileID: 1813403127}
   - component: {fileID: 1813403126}
   m_Layer: 0
   m_Name: GameManager
@@ -227,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FireLevelForSpread: 3
-  FireLevelSpreadProb: 0.01
+  FireLevelSpreadProb: 0.1
   FireLevelUpProb: 0.03
   FireObj: {fileID: 1904968989792778, guid: 60281f4a932d6ba40ac1e096b24d85e0, type: 2}
   everySteps: 20
@@ -243,6 +249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
+  - {fileID: 114883637404236724, guid: db37c318914816d40a1b3689f4ffabd6, type: 2}
+  - {fileID: 114883637404236724, guid: db37c318914816d40a1b3689f4ffabd6, type: 2}
   - {fileID: 114883637404236724, guid: db37c318914816d40a1b3689f4ffabd6, type: 2}
   innerFloor: []
   innerWall: []
@@ -260,3 +268,15 @@ MonoBehaviour:
   NPCCount: 3
   MinDistance: 3
   NPCObj: {fileID: 1583062063839714, guid: 9e65946caa833dd4e9e36ed940a3c9e9, type: 2}
+--- !u!114 &1813403127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1813403120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de8cefa18384c2fbaa35662c2741ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerObj: {fileID: 0}
