@@ -6,8 +6,14 @@ public class NPC : MovingObject
 {
     private Animator animator;
     private Transform target;
+    private Vector3 currentTarget;
     private bool skipMove;
     private float distance;
+    public float maxDistance = 3;
+    public float minDistance = 1;
+    public double changeDistanceProb = 0.01;
+    public double walkEbanca = 0.01;
+    
     
     protected override void Start ()
     {
@@ -18,24 +24,50 @@ public class NPC : MovingObject
     
     protected override void AttemptMove <T> (float xDir, float yDir)
     {
-        base.AttemptMove<T>(xDir, yDir);
+        
+            base.AttemptMove<T>(xDir, yDir);
     }
     
     private void Update ()
     {
         if (null != target)
         {
+
+            if (Random.value <= changeDistanceProb)
+            {
+                distance = Random.Range(minDistance, maxDistance);
+            }
+            if (Random.value <= changeDistanceProb)
+            {
+                currentTarget = target.position;
+            }
+            
             float xDir = 0;
             float yDir = 0;
 
-            if (Math.Round(Math.Abs(target.position.x - transform.position.x)) > distance)
+            double currentDistance = Math.Sqrt(Math.Pow(currentTarget.x - transform.position.x, 2) +
+                                               Math.Pow(currentTarget.y - transform.position.y, 2));
+            
+            if (currentDistance < distance)
             {
-                xDir = target.position.x > transform.position.x ? stepLength : -stepLength;
+                currentTarget = target.position;
+                currentTarget.x += Random.Range((float) -walkEbanca, (float) walkEbanca);
+                currentTarget.y += Random.Range((float) -walkEbanca, (float) walkEbanca);
             }
-            if (Math.Round(Math.Abs(target.position.y - transform.position.y)) > distance)
+            
+            if (Math.Round(Math.Abs(currentTarget.y - transform.position.y)) > distance){
+                xDir = currentTarget.x > transform.position.x ? stepLength : -stepLength;
+            }
+            if (Math.Round(Math.Abs(currentTarget.y - transform.position.y)) > distance)
             {
-                yDir = target.position.y > transform.position.y ? stepLength : -stepLength;
+                yDir = currentTarget.y > transform.position.y ? stepLength : -stepLength;
             }
+        
+            double currentVectorLength = Math.Sqrt(Math.Pow(xDir, 2) + Math.Pow(yDir, 2));
+
+            xDir /= (float) currentVectorLength * stepLength;
+            yDir /= (float) currentVectorLength * stepLength ;
+            
             AttemptMove<Player>(xDir, yDir);
         }
     }
@@ -60,7 +92,8 @@ public class NPC : MovingObject
     private void FollowPlayer()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
-        distance = Random.Range(1, 3);
+        currentTarget = target.position;
+        distance = Random.Range(minDistance, maxDistance);
     }
     
     protected override void OnCantMove<T>(T component)
