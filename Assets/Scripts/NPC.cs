@@ -23,8 +23,7 @@ public class NPC : MovingObject
     
     protected override void AttemptMove <T> (float xDir, float yDir)
     {
-        
-            base.AttemptMove<T>(xDir, yDir);
+        base.AttemptMove<T>(xDir, yDir);
     }
     
     private void Update ()
