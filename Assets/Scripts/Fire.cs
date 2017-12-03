@@ -16,7 +16,7 @@ public class Fire : MonoBehaviour
 
 	public void levelUp()
 	{
-		if (fireLevel <= maxFireLevel)
+		if (fireLevel < maxFireLevel)
 		{
 			fireLevel++;
 			animator.SetInteger("fireLevel", fireLevel);
