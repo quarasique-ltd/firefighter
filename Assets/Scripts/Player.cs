@@ -29,10 +29,12 @@ public class Player : MovingObject
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             horizontal = -stepLength;
+            animator.SetBool("playerLeft", true);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             horizontal = stepLength;
+            animator.SetBool("playerLeft", false);
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {

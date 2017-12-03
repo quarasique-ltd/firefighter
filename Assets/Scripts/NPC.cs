@@ -11,7 +11,6 @@ public class NPC : MovingObject
     
     protected override void Start ()
     {
-        //GameManager.instance.AddNPCToList(this);
         animator = GetComponent<Animator>();
         base.Start ();
     }

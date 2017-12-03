@@ -15,7 +15,7 @@ public abstract class MovingObject : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider2D>();
         rb2D = GetComponent<Rigidbody2D>();
-        inverseMoveTime = stepLength / moveTime;
+        inverseMoveTime = (10 * stepLength) / moveTime;
     }
     
     protected bool Move (float xDir, float yDir, out RaycastHit2D hit)
