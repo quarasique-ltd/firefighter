@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MovingObject
 {
     public int savingPoints = 10;
     public int healthPoints = 400;
+
+    public Text score;
     
     private Animator animator;
     private int points;
@@ -23,6 +26,7 @@ public class Player : MovingObject
     
     private void Update ()
     {
+        score.text = "" + GameManager.instance.points;
         float horizontal = 0;
         float vertical = 0;
 
