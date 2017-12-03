@@ -54,6 +54,18 @@ MonoBehaviour:
   shapeX: 11
   shapeY: 11
   WallsObjects:
-  - {fileID: 1616883548891022, guid: c7ec82178aa048347aa4ec0fce3f5965, type: 2}
+  - {fileID: 1958030773972314, guid: f00446114b963bc4bb1ed0b480c35add, type: 2}
+  HorOutWallls: []
+  HorNearWallls: []
+  VertLeftWallls: []
+  VertRightWallls: []
+  LeftUpAngleWalls: []
+  RitghUpAngleWalls: []
+  LeftDownAngleWalls: []
+  RightDownAngleWalls: []
+  LeftDownPass: []
+  RightDownPass: []
+  LeftUpPass: []
+  RightUpPass: []
   FloorObjects:
-  - {fileID: 1554678699639186, guid: 3b961f51f48f00b439bebd9f1de6cab0, type: 2}
+  - {fileID: 0}

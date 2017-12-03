@@ -22,14 +22,23 @@ public class NPCStrategy : MonoBehaviour, IWorldGenerator
         return exists;
     }
 
+    private bool maySetNPC(Vector3 pos)
+    {
+        List<Vector3> floor = GameManager.instance.FloorTiles;
+        return floor.Contains(pos);
+    }
+
+
     public void Init()
     {
         for (int i = 0; i < NPCCount; i++)
         {
-            Vector3 npcPos = new Vector3(Random.Range(1, 8), Random.Range(1, 8), 0);
+            int index = Random.Range(0, GameManager.instance.FloorTiles.Count);
+            Vector3 npcPos = GameManager.instance.FloorTiles[index];
             while (NPCExists(npcPos))
             {
-                npcPos = new Vector3(Random.Range(1, 8), Random.Range(1, 8), 0);
+                index = Random.Range(0, GameManager.instance.FloorTiles.Count);
+                npcPos = GameManager.instance.FloorTiles[index];
             }
             GameObject newNPC = Instantiate(NPCObj, npcPos, Quaternion.identity);
             NPCPlaces.Add(npcPos);

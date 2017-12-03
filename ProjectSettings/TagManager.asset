@@ -15,7 +15,7 @@ TagManager:
   - 
   - 
   - NPC
-  - 
+  - Wall
   - 
   - 
   - 
@@ -41,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 2496636249
+    locked: 0
+  - name: Fire
+    uniqueID: 1628547197
+    locked: 0
+  - name: NPC
+    uniqueID: 1183888117
+    locked: 0
+  - name: Player
+    uniqueID: 2386624883
     locked: 0
