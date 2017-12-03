@@ -31,6 +31,7 @@ public class Fire : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		animator = GetComponent<Animator>();
 		pos = gameObject.transform.position;
 	}
 }

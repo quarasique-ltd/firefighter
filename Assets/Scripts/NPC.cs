@@ -94,6 +94,9 @@ public class NPC : MovingObject
 
     private void Burn()
     {
+        this.enabled = false;
+        this.animator.enabled = false;
+        Destroy(this.gameObject);
         // TODO: method to play burning animation and delete NPC from screen;
     }
 
