@@ -249,11 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 114883637404236724, guid: db37c318914816d40a1b3689f4ffabd6, type: 2}
-  - {fileID: 114883637404236724, guid: db37c318914816d40a1b3689f4ffabd6, type: 2}
-  - {fileID: 114883637404236724, guid: db37c318914816d40a1b3689f4ffabd6, type: 2}
-  innerFloor: []
-  innerWall: []
+  - {fileID: 114967718559724356, guid: 1b40e00113704e04f80afa39cfd26b5c, type: 2}
 --- !u!114 &1813403126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,4 +275,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de8cefa18384c2fbaa35662c2741ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerObj: {fileID: 0}

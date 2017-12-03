@@ -6,9 +6,9 @@ namespace GenerateWorld
 {
 	public class GenerateRooms : MonoBehaviour, IWorldGenerator
 	{
-		public Room[] rooms;
-		public List<Vector3> innerFloor;
-		public List<Vector3> innerWall;
+		public GenerateHorRoom[] rooms;
+		private List<Vector3> innerFloor = new List<Vector3>();
+		private List<Vector3> innerWall = new List<Vector3>();
 		public void Init()
 		{
 			Debug.Log("started to generate rooms");
@@ -17,10 +17,9 @@ namespace GenerateWorld
 			{
 				int shapeX = room.getShapeX();
 				int shapeY = room.getShapeY();
-				initPos.x = 0 - shapeX / 2;
 				innerWall.AddRange(room.GenerateWalls(initPos));
 				innerFloor .AddRange(room.GenerateFloor(initPos));
-				initPos.y += shapeY;
+				initPos.x += shapeX;
 			}
 			GameManager.instance.FloorTiles.AddRange(innerFloor);
 		}
