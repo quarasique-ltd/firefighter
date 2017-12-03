@@ -124,12 +124,7 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114242052676583650, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
-        type: 2}
-      propertyPath: rooms.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4394548538223808, guid: 65fca93cc99298e45b003ea8ce4a4b7f, type: 2}
+    - target: {fileID: 4648174734897070, guid: 65fca93cc99298e45b003ea8ce4a4b7f, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.22314256
       objectReference: {fileID: 0}
@@ -161,26 +156,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114242052676583650, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
+    - target: {fileID: 114471367587072196, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
         type: 2}
-      propertyPath: rooms.Array.data[1]
-      value: 
-      objectReference: {fileID: 114065177501057284, guid: f5d4f9e5657cf2a4692803b7594ca016,
-        type: 2}
-    - target: {fileID: 114569390229533124, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
-        type: 2}
-      propertyPath: everySteps
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 114569390229533124, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
-        type: 2}
-      propertyPath: FireLevelUpProb
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114569390229533124, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
-        type: 2}
-      propertyPath: FireLevelSpreadProb
-      value: 0.05
+      propertyPath: MinDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65fca93cc99298e45b003ea8ce4a4b7f, type: 2}
@@ -226,7 +205,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -274,11 +253,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4960200240548558, guid: 130236d4cc4356d4caac946b5585c927, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4960200240548558, guid: 130236d4cc4356d4caac946b5585c927, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4960200240548558, guid: 130236d4cc4356d4caac946b5585c927, type: 2}
       propertyPath: m_LocalPosition.z

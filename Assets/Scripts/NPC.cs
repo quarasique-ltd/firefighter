@@ -54,8 +54,17 @@ public class NPC : MovingObject
                 currentTarget.y += Random.Range((float) -walkEbanca, (float) walkEbanca);
             }
             
-            if (Math.Round(Math.Abs(currentTarget.y - transform.position.y)) > distance){
+            if (Math.Round(Math.Abs(currentTarget.x - transform.position.x)) > distance) {
                 xDir = currentTarget.x > transform.position.x ? stepLength : -stepLength;
+                if (currentTarget.x != transform.position.x)
+                {
+                    animator.SetBool("NPCLeft", currentTarget.x < transform.position.x);
+                    animator.SetBool("NPCRun", true);
+                }
+                else
+                {
+                    animator.SetBool("NPCRun", false);
+                }
             }
             if (Math.Round(Math.Abs(currentTarget.y - transform.position.y)) > distance)
             {
