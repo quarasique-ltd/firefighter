@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 	private BoardManager boardScript;
-	private int level = 3;
+	private int level = 1;
 	public List<Vector3> FloorTiles = new List<Vector3>();
 	
 	void Awake()

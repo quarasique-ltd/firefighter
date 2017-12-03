@@ -4,41 +4,33 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-
-	private int FireLevel = 0;
-
-	public Sprite[] FireLevels;
 	private GameObject currentFire;
 	private Vector3 pos;
+	private Animator animator;
+	private int fireLevel = 0;
 	
 	public Fire(Vector3 pos)
 	{
-		
 	}
 
 	public void levelUp()
 	{
-		if (FireLevels.Length - FireLevel >= 2)
+		if (fireLevel > 2)
 		{
-			FireLevel++;
-			this.GetComponent<SpriteRenderer>().sprite = FireLevels[FireLevel];
+			fireLevel++;
+			animator.SetInteger("fireLevel", fireLevel);
 		}
 	}
 
 	public int getFireLevel()
 	{
-		return FireLevel + 1;
+		return fireLevel + 1;
 	}
 	
 	// Use this for initialization
 	void Start ()
 	{
-		this.pos = gameObject.transform.position;
-		this.GetComponent<SpriteRenderer>().sprite = FireLevels[FireLevel];
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		pos = gameObject.transform.position;
+		animator.SetInteger("fireLevel", fireLevel);
 	}
 }
