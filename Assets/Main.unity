@@ -129,6 +129,11 @@ Prefab:
       propertyPath: rooms.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114751513005895574, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
+        type: 2}
+      propertyPath: rooms.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4394548538223808, guid: 65fca93cc99298e45b003ea8ce4a4b7f, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.22314256
@@ -181,6 +186,27 @@ Prefab:
         type: 2}
       propertyPath: FireLevelSpreadProb
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 114751513005895574, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
+        type: 2}
+      propertyPath: rooms.Array.data[1]
+      value: 
+      objectReference: {fileID: 114065177501057284, guid: f5d4f9e5657cf2a4692803b7594ca016,
+        type: 2}
+    - target: {fileID: 114336212042525626, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
+        type: 2}
+      propertyPath: FireLevelUpProb
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114336212042525626, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
+        type: 2}
+      propertyPath: FireLevelForSpread
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114336212042525626, guid: 65fca93cc99298e45b003ea8ce4a4b7f,
+        type: 2}
+      propertyPath: FireLevelSpreadProb
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65fca93cc99298e45b003ea8ce4a4b7f, type: 2}
