@@ -26,7 +26,7 @@ public class Player : MovingObject
     
     private void Update ()
     {
-        score.text = "" + GameManager.instance.points;
+        score.text = "Score: " + GameManager.instance.points;
         float horizontal = 0;
         float vertical = 0;
 
