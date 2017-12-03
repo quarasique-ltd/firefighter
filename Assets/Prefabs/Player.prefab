@@ -121,6 +121,8 @@ MonoBehaviour:
   blockingLayer:
   - serializedVersion: 2
     m_Bits: 256
+  - serializedVersion: 2
+    m_Bits: 768
   savingPoints: 10
   healthPoints: 3
 --- !u!212 &212852723621840996
