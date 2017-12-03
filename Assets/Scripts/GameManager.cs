@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -8,6 +9,9 @@ public class GameManager : MonoBehaviour {
 	private BoardManager boardScript;
 	private int level = 1;
 	public List<Vector3> FloorTiles = new List<Vector3>();
+	private bool gameOver = false;
+	private float restartTimer = 0;
+	private float restartDelay = 0;
 	
 	void Awake()
 	{
@@ -25,11 +29,22 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void Update () {
+		restartTimer += Time.deltaTime;
+		if (gameOver)
+		{
+			SceneManager.UnloadScene(0);
+			SceneManager.LoadScene(0);
+			gameOver = false;
+		}
 		boardScript.Update();
 	}
 
 	public void GameOver()
 	{
-		this.enabled = false;
+		if (!gameOver)
+		{
+			gameOver = true;
+			restartDelay += restartTimer +1f;
+		}
 	}
 }
