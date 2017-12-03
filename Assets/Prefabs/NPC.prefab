@@ -123,11 +123,11 @@ MonoBehaviour:
     m_Bits: 256
   - serializedVersion: 2
     m_Bits: 512
-  maxDistance: 3
-  minDistance: 1
+  maxDistance: 1.5
+  minDistance: 0.5
   changeDistanceProb: 0.01
   walkEbanca: 0.01
---- !u!212 &212733866537873412
+--- !u!212 &212016028504407268
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
