@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61027818010531540}
   - component: {fileID: 50227769844323972}
   - component: {fileID: 114393679564051216}
-  - component: {fileID: 212733866537873412}
+  - component: {fileID: 212016028504407268}
   m_Layer: 8
   m_Name: NPC
   m_TagString: NPC
@@ -129,7 +129,7 @@ MonoBehaviour:
   walkEbanca: 0.01
 --- !u!212 &212016028504407268
 SpriteRenderer:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755204028878432}
