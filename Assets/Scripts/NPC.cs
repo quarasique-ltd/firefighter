@@ -54,7 +54,7 @@ public class NPC : MovingObject
                 currentTarget.y += Random.Range((float) -walkEbanca, (float) walkEbanca);
             }
             
-            if (Math.Round(Math.Abs(currentTarget.y - transform.position.y)) > distance){
+            if (Math.Round(Math.Abs(currentTarget.x - transform.position.x)) > distance){
                 xDir = currentTarget.x > transform.position.x ? stepLength : -stepLength;
             }
             if (Math.Round(Math.Abs(currentTarget.y - transform.position.y)) > distance)
