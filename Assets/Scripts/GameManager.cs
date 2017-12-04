@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour {
 			SceneManager.UnloadScene(0);
 			SceneManager.LoadScene(0);
 			winB = false;
+			InitGame();
 		}
 		boardScript.Update();
 	}

@@ -16,6 +16,7 @@ public class Fire : MonoBehaviour
 
 	public void levelUp()
 	{
+		Debug.Log(fireLevel);
 		if (fireLevel < maxFireLevel)
 		{
 			fireLevel++;

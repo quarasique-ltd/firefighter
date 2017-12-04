@@ -72,30 +72,42 @@ public class FireStrategy : MonoBehaviour, IWorldUpdater, IWorldGenerator
         {
             currentStep = 0;
             List<Fire> newFires = new List<Fire>();
-            foreach (Fire firePlace in FirePlaces)
+            int count = 0;
+            for (var i = 0; i < FirePlaces.Count; i++)
             {
+                Fire firePlace = FirePlaces[i];
+                if (firePlace == null)
+                {
+                    FirePlaces.RemoveAt(i);
+                    i--;
+                    continue;
+                }
+                count++;
                 Vector3 position = firePlace.transform.position;
                 Fire fire = firePlace as Fire;
                 if (fire.getFireLevel() >= FireLevelForSpread)
                 {
-                    Vector3[] firePositions = getNeighbours(position);
-                    foreach (Vector3 firePos in firePositions)
+                    if (Random.value <= FireLevelSpreadProb)
                     {
-                        if (!IsFireExists(firePos, FirePlaces) && !IsFireExists(firePos, newFires) &&
-                            maySetFire(firePos))
+                        Vector3[] firePositions = getNeighbours(position);
+                        foreach (Vector3 firePos in firePositions)
                         {
-                            if (Random.value <= FireLevelSpreadProb)
+                            if (!IsFireExists(firePos, FirePlaces) && !IsFireExists(firePos, newFires) &&
+                                maySetFire(firePos))
                             {
-                                GameObject newFire = Instantiate(FireObj, firePos, Quaternion.identity);
-                                newFires.Add(newFire.GetComponent("Fire") as Fire);
+                                if (Random.value <= FireLevelSpreadProb)
+                                {
+                                    GameObject newFire = Instantiate(FireObj, firePos, Quaternion.identity);
+                                    newFires.Add(newFire.GetComponent("Fire") as Fire);
+                                }
                             }
-                        }
-                        else
-                        {
-                            if (Random.value <= FireLevelUpProb && IsFireExists(firePos, FirePlaces))
+                            else
                             {
-                                Fire fire1 = getFireByCoordinates(firePos, FirePlaces) as Fire;
-                                fire1.levelUp();
+                                if (Random.value <= FireLevelUpProb && IsFireExists(firePos, FirePlaces))
+                                {
+                                    Fire fire1 = getFireByCoordinates(firePos, FirePlaces) as Fire;
+                                    fire1.levelUp();
+                                }
                             }
                         }
                     }
@@ -106,17 +118,23 @@ public class FireStrategy : MonoBehaviour, IWorldUpdater, IWorldGenerator
                 }
             }
             FirePlaces.AddRange(newFires);
-        }
+            if (count == 0)
+            {
+                Init();
+            }
+            }
     }
 
     public void Init()
     {
-        for (int i = 0; i < 4; i++)
+        FirePlaces.Clear();
+        for (int i = 0; i < 6; i++)
         {
             int index = Random.Range(0, GameManager.instance.FloorTiles.Count);
             Vector3 firePos = GameManager.instance.FloorTiles[index];
             GameManager.instance.FloorTiles.RemoveAt(index);
             GameObject newFire = Instantiate(FireObj, firePos, Quaternion.identity);
+            Debug.Log(newFire);
             FirePlaces.Add(newFire.GetComponent("Fire") as Fire);
         }
     }
