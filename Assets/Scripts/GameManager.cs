@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 	private BoardManager boardScript;
-	private int level = 1;
+	public int level = 1;
 	public List<Vector3> FloorTiles = new List<Vector3>();
 	private bool gameOver = false;
 	private float restartTimer = 0;
@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour {
 	
 	void Awake()
 	{
+		if (instance != null)
+		{
+			this.level = instance.level;
+		}
 		if (instance == null)
 			instance = this;
 		else if (instance != this)
@@ -26,7 +30,10 @@ public class GameManager : MonoBehaviour {
 		InitGame();
 	}
 	
-	void InitGame () {
+	void InitGame ()
+	{
+		FloorTiles.Clear();
+		Debug.Log(level);
 		boardScript.BoardSetup(level);
 	}
 
@@ -37,14 +44,15 @@ public class GameManager : MonoBehaviour {
 		{
 			SceneManager.UnloadScene(0);
 			SceneManager.LoadScene(0);
+			level = 1;
 			gameOver = false;
 		}
 		if (winB)
 		{
 			SceneManager.UnloadScene(0);
 			SceneManager.LoadScene(0);
+			level++;
 			winB = false;
-			InitGame();
 		}
 		boardScript.Update();
 	}

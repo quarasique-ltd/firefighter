@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 public class PlayerStrategy : MonoBehaviour, IWorldGenerator
 {
 	
-	public void Init()
+	public void Init(int level)
 	{
 		Vector3 playerPos = new Vector3(0, 0, 0);
 		GameManager.instance.FloorTiles.Remove(playerPos);

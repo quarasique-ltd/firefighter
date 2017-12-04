@@ -11,7 +11,7 @@ public class FireStrategy : MonoBehaviour, IWorldUpdater, IWorldGenerator
 
     private List<Fire> FirePlaces = new List<Fire>();
     public GameObject FireObj;
-
+    private int level = 0;
     private double eps = 0.1;
 
     public int everySteps = 10;
@@ -120,15 +120,16 @@ public class FireStrategy : MonoBehaviour, IWorldUpdater, IWorldGenerator
             FirePlaces.AddRange(newFires);
             if (count == 0)
             {
-                Init();
+                Init(this.level);
             }
             }
     }
 
-    public void Init()
+    public void Init(int level)
     {
         FirePlaces.Clear();
-        for (int i = 0; i < 6; i++)
+        this.level = level;
+        for (int i = 0; i <(int) level  * 1.5 + 6; i++)
         {
             int index = Random.Range(0, GameManager.instance.FloorTiles.Count);
             Vector3 firePos = GameManager.instance.FloorTiles[index];

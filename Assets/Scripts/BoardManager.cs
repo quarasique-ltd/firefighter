@@ -14,7 +14,7 @@ public class BoardManager : MonoBehaviour
 		WorldUpdaters = GetComponents<IWorldUpdater>();
 		foreach (IWorldGenerator worldGenerator in WorldGenerators)
 		{
-			worldGenerator.Init();
+			worldGenerator.Init(level);
 		}
 	}
 	

@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IWorldGenerator {
 	
 	// Update is called once per frame
-	void Init();
+	void Init(int levelNumber);
 }

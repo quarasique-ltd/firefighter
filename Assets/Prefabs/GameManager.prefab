@@ -56,11 +56,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377d2d65246fdad43a67eae4d1a17572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireLevelForSpread: 1
-  FireLevelSpreadProb: 0.01
+  FireLevelForSpread: 2
+  FireLevelSpreadProb: 0.03
   FireLevelUpProb: 0.3
-  FireObj: {fileID: 1896429314819814, guid: 60281f4a932d6ba40ac1e096b24d85e0, type: 2}
-  everySteps: 100
+  FireObj: {fileID: 1263561583267302, guid: 27c956b9daad1d94a80c8c99839fe16d, type: 2}
+  everySteps: 30
 --- !u!114 &114151284391915080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,7 +72,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bd043f00f3a1749b778a25230c294b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
   FloorTiles: []
+  points: 0
 --- !u!114 &114176850380265608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,6 +113,7 @@ MonoBehaviour:
   rooms:
   - {fileID: 114967718559724356, guid: 1b40e00113704e04f80afa39cfd26b5c, type: 2}
   - {fileID: 114065177501057284, guid: f5d4f9e5657cf2a4692803b7594ca016, type: 2}
+  - {fileID: 114088933318299436, guid: 2e883da2f9547f94ba7e2d39bdf8a362, type: 2}
 --- !u!114 &114872657586282104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,6 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f73a977d4884be78cb99c0dd43eba87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCCount: 3
+  NPCCount: 4
   MinDistance: 3
   NPCObj: {fileID: 1755204028878432, guid: 9e65946caa833dd4e9e36ed940a3c9e9, type: 2}

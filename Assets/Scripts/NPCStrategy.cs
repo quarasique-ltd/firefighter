@@ -29,9 +29,10 @@ public class NPCStrategy : MonoBehaviour, IWorldGenerator
     }
 
 
-    public void Init()
+    public void Init(int level)
     {
-        for (int i = 0; i < NPCCount; i++)
+        int npcCount = NPCCount + level;
+        for (int i = 0; i < npcCount; i++)
         {
             int index = Random.Range(0, GameManager.instance.FloorTiles.Count);
             Vector3 npcPos = GameManager.instance.FloorTiles[index];
